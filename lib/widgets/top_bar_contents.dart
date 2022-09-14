@@ -1,8 +1,9 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
-import 'package:mywebsite/utils/authentication.dart';
-import 'package:mywebsite/widgets/articles.dart';
-import 'package:mywebsite/widgets/auth_dialog.dart';
+
 import 'package:flutter/material.dart';
+import 'package:mywebsite/articlesLogic/articleJSON.dart';
+import 'package:mywebsite/articlesLogic/articles.dart';
+import 'package:mywebsite/widgets/aboutme.dart';
 
 class TopBarContents extends StatefulWidget {
   final double opacity;
@@ -80,55 +81,72 @@ class _TopBarContentsState extends State<TopBarContents> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    SizedBox(width: screenSize.width / 8),
-                    InkWell(
-
-                      onTap: () { Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => Articles()),
-                      );
-                      },
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          Text(
-                            'Articles',
-                            style: TextStyle(
-                              color
-                                  :Colors.grey,
-                            ),
-                          ),
+                    SizedBox(width: screenSize.width / 16),
 
 
-                        ],
-                      ),
+                    ElevatedButton(
+                        onPressed:() {
+
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) =>  articleJSON()),
+                          );
+
+                        },
+                        style: ElevatedButton.styleFrom(
+                            onPrimary: Colors.white,
+                            primary: Colors.deepOrange,
+                            onSurface: Colors.grey,
+                            side: BorderSide(color: Colors.orange, width: 2),
+                            elevation: 5,
+                            minimumSize: Size(100,40),
+                            shadowColor: Colors.grey,
+                            padding: EdgeInsets.only(
+                                left: 20,
+                                right: 20,
+                                top: 15,
+                                bottom: 15
+                            )
+                        ),
+                        child:Text("Articles",style: TextStyle(color: Colors.white),)
+
                     ),
 
-                    SizedBox(width: screenSize.width / 20),
-                    InkWell(
-                      onHover: (value) {
-                        setState(() {
-                          value
-                              ? _isHovering[1] = true
-                              : _isHovering[1] = false;
-                        });
-                      },
-                      onTap: () {},
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        children: const [
-                          Text(
-                            'About me',
-                            style: TextStyle(
-                              color
-                                  :Colors.grey,
-                            ),
-                          ),
 
 
-                        ],
-                      ),
+
+
+
+
+                    SizedBox(width: screenSize.width / 40),
+
+                    ElevatedButton(
+                        onPressed:() {
+                          showDialog(
+                            context: context,
+                            builder: (context) =>aboutMe(),
+                          );
+
+                        },
+                        style: ElevatedButton.styleFrom(
+                            onPrimary: Colors.white,
+                            primary: Colors.deepOrange,
+                            onSurface: Colors.grey,
+                            side: BorderSide(color: Colors.white54, width: 2),
+                            elevation: 10,
+                            minimumSize: Size(100,40),
+                            shadowColor: Colors.grey,
+                            padding: EdgeInsets.only(
+                                left: 20,
+                                right: 20,
+                                top: 15,
+                                bottom: 15
+                            )
+                        ),
+                        child:Text("About me",style: TextStyle(color: Colors.white),)
+
                     ),
+
 
 
                   ],

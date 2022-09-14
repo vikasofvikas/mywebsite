@@ -9,12 +9,16 @@ var lightThemeData = ThemeData(
       color: Colors.blueGrey,
       decorationColor: Colors.blueGrey[300],
     ),
+    bodyText1: TextStyle(
+      color: Colors.black,
+    ),
     subtitle2: TextStyle(
       color: Colors.blueGrey[900],
     ),
     subtitle1: TextStyle(
       color: Colors.black,
     ),
+
     headline1: TextStyle(color: Colors.blueGrey[800]),
   ),
   bottomAppBarColor: Colors.blueGrey[900],
@@ -30,6 +34,9 @@ var darkThemeData = ThemeData(
     button: TextStyle(
       color: Colors.blueGrey[200],
       decorationColor: Colors.blueGrey[50],
+    ),
+    bodyText1: TextStyle(
+      color: Colors.white,
     ),
     subtitle2: TextStyle(
       color: Colors.white,

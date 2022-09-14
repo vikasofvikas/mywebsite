@@ -1,8 +1,14 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:easy_dynamic_theme/easy_dynamic_theme.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:mywebsite/articlesLogic/articleJSON.dart';
+import 'package:mywebsite/articlesLogic/articles.dart';
+import 'package:mywebsite/articlesLogic/gridCards.dart';
+import 'package:mywebsite/widgets/backgroundHomepage.dart';
+import 'package:mywebsite/widgets/customWidgets.dart';
 import 'package:mywebsite/widgets/featured_tiles2.dart';
 import 'package:mywebsite/widgets/featured_tiles3.dart';
+import 'package:mywebsite/widgets/flickerTextWidget.dart';
 import 'package:mywebsite/widgets/web_scrollbar.dart';
 import 'package:mywebsite/widgets/bottom_bar.dart';
 import 'package:mywebsite/widgets/featured_heading2.dart';
@@ -13,8 +19,6 @@ import 'package:mywebsite/widgets/responsive.dart';
 import 'package:mywebsite/widgets/top_bar_contents.dart';
 import 'package:flutter/material.dart';
 
-import '../widgets/TextWithGoogleFont.dart';
-import '../widgets/articles.dart';
 
 // We focus on stories and technology: the smartest people, the biggest ideas, and the most impactful technology
 
@@ -28,15 +32,8 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   static const colorizeColors = [
     Colors.orange,
-    Colors.redAccent,
-    Colors.green,
-    Colors.indigo,
-    Colors.tealAccent,
-    Colors.pink,
-
-
+    Colors.red,
     Colors.deepOrangeAccent,
-    Colors.white,
   ];
   static const colorizeTextStyle = TextStyle(
     fontWeight: FontWeight.bold,
@@ -75,23 +72,8 @@ class _HomePageState extends State<HomePage> {
                   Theme.of(context).bottomAppBarColor.withOpacity(_opacity),
               elevation: 0,
               centerTitle: true,
-        iconTheme: IconThemeData(        color: Colors.deepOrangeAccent,
-        ),
-              title: AnimatedTextKit(
-                animatedTexts: [
-                  ColorizeAnimatedText(
-                    speed: const Duration(seconds: 15),
-                    'V',
-                    textStyle: colorizeTextStyle,
-                    colors: colorizeColors,
-                  ),
-
-                ],
-                isRepeatingAnimation: false,
-                onTap: () {
-                  print("Tap Event");
-                },
-              ),
+        iconTheme: const IconThemeData(color: Colors.deepOrangeAccent),
+        title: Text("V",style: TextStyle(color: Colors.deepOrange, fontWeight: FontWeight.bold),),
             )
 
 
@@ -115,35 +97,90 @@ class _HomePageState extends State<HomePage> {
 
           child: Column(
             children: [
-              SizedBox(height: screenSize.height/10 ,),
+              SizedBox(height: 40,),
+             /* Center(
+                child: TextWithGoogleFontHomePage(text: ' Welcome to my digital brain '),
+              ),*/
+
               Stack(
                 children: [
+
+                  SizedBox(height: 210,),
+
                   Container(
-                    height: screenSize.height * 0.35,
-                    width: screenSize.width,
-                    decoration:  BoxDecoration(
-                        gradient: LinearGradient(
-                            begin: Alignment.topCenter ,
-                            end: Alignment.bottomCenter ,
-                            colors: [Colors.white.withOpacity(0.2),Colors.orange.withOpacity(0.5),Colors.white.withOpacity(0.2),])),
+                    height:300,
 
+                      width: screenSize.width,
+                    decoration: const BoxDecoration(
+                      image: DecorationImage(
+                        image: AssetImage(
+                            'assets/images/background.png'),
+                        fit: BoxFit.fitHeight,
+                      ),
+
+                    ),
+                  ),
+
+                  Positioned.fill(
+                    child: Align(
+                        alignment: Alignment.center,
+                        child:    backgroundHomepage()
+                    ),
                   ),
 
 
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      SizedBox(height: screenSize.height/8 ,),
-                      Row(),
-                      TextWithGoogleFontBold(text: ' "I love to develop" '),
 
 
-                    ],
-                  ),
                 ],
               ),
+
+
+          /*    Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  SizedBox(height: screenSize.height/8 ,),
+                  Row(),
+                  // TextWithGoogleFontBold(text: ' "I love to develop" '),
+
+
+                ],
+              ),*/
               //My projects
+
+          Center(
+            child: SizedBox(
+              width: 270.0,
+              height: 25,
+              child: DefaultTextStyle(
+                style: const TextStyle(
+                  fontSize: 18.0,
+                  color: Colors.deepOrange,
+                  fontFamily: 'Montserrat',
+                ),
+                child: AnimatedTextKit(
+                  isRepeatingAnimation: false,
+                  animatedTexts: [
+                    TypewriterAnimatedText('Welcome To My Digital Brain',
+                    speed: Duration(milliseconds: 120)
+                    ),
+
+                  ],
+                  onTap: () {
+                    print("Tap Event");
+                  },
+                ),
+              ),
+            ),
+          ),
+
+              Divider(
+                indent: ResponsiveWidget.isSmallScreen(context)?40:200,
+                endIndent: ResponsiveWidget.isSmallScreen(context)?40:200,
+                thickness: 0.1,
+                color: Colors.grey,
+              ),
+
               FeaturedHeading2(
                 screenSize: screenSize,
               ),
@@ -163,7 +200,7 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
 
-              SizedBox(height: 25,),
+              SizedBox(height: screenSize.height / 15),
 
               // See more button
               Row(
@@ -171,9 +208,12 @@ class _HomePageState extends State<HomePage> {
                 children: [
                  ElevatedButton(
                      onPressed:() {
+
                  Navigator.push(
                  context,
-                 MaterialPageRoute(builder: (context) => Articles()),
+                 MaterialPageRoute(builder: (context) =>  articleJSON()),
+
+
                  );
 
                      },
@@ -197,9 +237,14 @@ class _HomePageState extends State<HomePage> {
                  )
                 ],
               ),
-
-
-              SizedBox(height: screenSize.height / 10),
+              SizedBox(height: screenSize.height / 25),
+              Divider(
+                indent: ResponsiveWidget.isSmallScreen(context)?40:200,
+                endIndent: ResponsiveWidget.isSmallScreen(context)?40:200,
+                thickness: 0.1,
+                color: Colors.grey,
+              ),
+          //    SizedBox(height: screenSize.height / 25),
               BottomBar(),
             ],
           ),
@@ -208,3 +253,48 @@ class _HomePageState extends State<HomePage> {
     );
   }
 }
+
+
+
+/*  Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: const [
+                     scrollingTextSimple1(text: 'computer ਵਿਗਿਆਨ  Java भाषा JavaScript Web Technologies फ़ोन development ਸਾਫ਼ code Database SQL Firebase Android development TensorFlow Artificial ਬੁੱਧੀ HTML CSS '),
+
+                      SizedBox(height: 7,),
+
+                       scrollingTextSimple2(text: 'quantum अस्थिरता inflation expansion ਮਜ਼ਬੂਤ nuclear interaction particle-antiparticle annihilation deuterium and helium production ਘਣਤਾ perturbations recombination blackbody radiation ਸਥਾਨਕ contraction cluster formation reionization '),
+
+                       SizedBox(height: 7,),
+
+                      scrollingTextSimple3(text: 'ਵਿਕਾਸ evolution unicellular जीव oxidation mutation ਕੁਦਰਤੀ selection and evolution respiration ਭਿੰਨਤਾ प्रजनन fossilization '),
+
+                      SizedBox(height: 7,),
+
+                      scrollingTextSimple4(text: 'ਵਿਸ਼ਾਲ star formation deuterium ignition hydrogen fusion hydrogen depletion core सिकुड़न envelope विस्तार helium fusion carbon oxygen and silicon fusion लोहा production implosion supernova explosion ਧਾਤ injection ਤਾਰਾ formation supernova explosions star formation condensation planetesimal accretion ਗ੍ਰਹਿ differentiation crust solidification. '),
+
+                      SizedBox(height: 7,),
+
+//Mammal expansion. Glaciation. Homo sapiens manifestation. Animal domestication. Food surplus production. Civilization! Innovation. Exploration. Religion. Warring nations.
+
+//Empire creation and destruction. Exploration. Colonization. Taxation without representation. Revolution. Constitution. Election. Expansion. Industrialization. Rebellion. Emancipation Proclamation.
+// Invention. Mass production. Urbanization. Immigration. World conflagration. League of Nations. Suffrage extension. Depression. World conflagration.
+
+
+//United Nations. Space exploration. Assassinations. Lunar excursions. Resignation. Computerization. World Trade Organization. Terrorism. Internet expansion. Reunification. Dissolution. World-Wide Web creation. Composition. Extrapolation?
+
+
+                    ////// Braneworld  The Big Splat
+
+                      scrollingTextSimple5(text: 'ब्रम्हांड time समय present वर्तमान'),
+                      SizedBox(height: 10,),
+
+                      scrollingTextSimple6(text: 'Earth Laika Worm at the core '),
+
+                      SizedBox(height: 7,),
+
+                      scrollingTextSimple7(text: '01010101010010101010101'),
+                    ],
+                  ),
+          */

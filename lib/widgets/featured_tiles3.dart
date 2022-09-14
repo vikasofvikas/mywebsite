@@ -1,4 +1,3 @@
-import 'package:mywebsite/widgets/auth_dialog.dart';
 import 'package:mywebsite/widgets/project_Dialog_WIdget.dart';
 import 'package:mywebsite/widgets/project_dialog.dart';
 import 'package:mywebsite/widgets/responsive.dart';
@@ -15,17 +14,17 @@ class FeaturedTiles3 extends StatelessWidget {
   final Size screenSize;
 
   final List<String> assets = [
-    'https://media.giphy.com/media/d2ZhOvMCq7tcTM0o/giphy.gif',
-    'https://media.giphy.com/media/l0OWitHsmBZRYAqbK/giphy.gif',
-    'https://media.giphy.com/media/46zAYJMkSG66iTeAje/giphy.gif',
+    'assets/GIF/foucs.gif',
+    'assets/GIF/fouxa.gif',
+    'assets/GIF/rise.gif',
   ];
 
-  final List<String> title = ['Funding in Startupspp', 'Startup Jargon', 'Future of Farming'];
+  final List<String> title = ['focus app', 'fouxa.com', 'Rise Philosophy app'];
 
   final List<Widget> widgetdialog = [
-    projectDialogue(gifLinkString: categories[0].gifLink, downloadCountBegin: 15000, downloadCountEnd: 30000, projectDescription: categories[0].projectDescription),
-    projectDialogue(gifLinkString: categories[1].gifLink, downloadCountBegin: 15000, downloadCountEnd: 30000, projectDescription: categories[1].projectDescription),
-    projectDialogue(gifLinkString: categories[2].gifLink, downloadCountBegin: 15000, downloadCountEnd: 30000, projectDescription: categories[2].projectDescription),
+    projectDialogue(gifLinkString: categories[3].gifLink, downloadCountBegin: 1, downloadCountEnd: 30, projectDescription: categories[3].projectDescription,URL: 'https://play.google.com/store/apps/details?id=com.fouxa.focustimekeeperapp',),
+    projectDialogue(gifLinkString: categories[4].gifLink, downloadCountBegin: 0, downloadCountEnd: 0, projectDescription: categories[4].projectDescription,URL: 'https://fouxa.com',),
+    projectDialogue(gifLinkString: categories[5].gifLink, downloadCountBegin: 1, downloadCountEnd: 30, projectDescription: categories[5].projectDescription,URL:'https://play.google.com/store/apps/details?id=com.risephilosophy.risephilosophy'),
   ];
 
 
@@ -43,7 +42,7 @@ class FeaturedTiles3 extends StatelessWidget {
         left: screenSize.width / 15,
         right: screenSize.width / 15,
       ),
-      child: Row(
+          child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           ...Iterable<int>.generate(assets.length).map(
@@ -63,9 +62,9 @@ class FeaturedTiles3 extends StatelessWidget {
                         height: screenSize.width / 6,
                         width: screenSize.width / 3.8,
                         child: ClipRRect(
-                          borderRadius: BorderRadius.circular(7),
+                          borderRadius: BorderRadius.circular(4),
                           child:  Container(
-                              child: Image.network( assets[pageIndex], fit: BoxFit.cover,)
+                              child: Image.asset( assets[pageIndex], fit: BoxFit.cover,)
                           ),
                         ),
                       ),

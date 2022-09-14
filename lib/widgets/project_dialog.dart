@@ -14,6 +14,7 @@ class _projectDialogState extends State<projectDialogue1> {
   @override
   Widget build(BuildContext context) {
     return Dialog(
+
       backgroundColor: Theme.of(context).backgroundColor,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(8.0),
@@ -44,6 +45,7 @@ class _projectDialogState2 extends State<projectDialogue2> {
   @override
   Widget build(BuildContext context) {
     return Dialog(
+
         backgroundColor: Theme.of(context).backgroundColor,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(8.0),

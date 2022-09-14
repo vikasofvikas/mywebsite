@@ -18,42 +18,42 @@ class Category {
 List<Category> categories = [
 
 Category(
-    projectTitle: "Critical Thinking",
+    projectTitle: "Plant disease identification",
 //widget: DetailsScreen(),
-    gifLink: "https://media.giphy.com/media/8VkgrPdxMh0oo/giphy.gif",
-    projectDescription: "- Use of bloc state management.\n- Local data storage using shared preferences.\n- Firebase connectivity.\n- Intuitive UI - Use of bloc state management.\n- Local data storage using shared preferences.\n- Firebase connectivity.\n- Intuitive UI"
+    gifLink: "assets/GIF/plant.gif",
+    projectDescription: "- Use of bloc for state management.\n- Local data storage using shared preferences.\n- Intuitive UI.\n- Firebase connectivity to display articles.\n- Machine learning using tensorflow lite."
 ),
 
   Category(
-      projectTitle: "Plant Disease",
-      gifLink: "https://media.giphy.com/media/t9nbJbsVe50J2/giphy.gif",
-      projectDescription: "- Use of bloc state management.\n- Local data storage using shared preferences.\n- Firebase connectivity.\n- Intuitive UI"
+      projectTitle: "Quiz App",
+      gifLink: "assets/GIF/quiz.gif",
+      projectDescription: "- Dark mode for readers.\n- Local data storage for implementing 'change fontsize' feature \n- Firebase connectivity to display articles. "
   ),
 
 
   Category(
-      projectTitle: "Quiz app",
-      gifLink: "https://media.giphy.com/media/8VkgrPdxMh0oo/giphy.gif",
-      projectDescription: "- Use of bloc state management.\n- Local data storage using shared preferences.\n- Firebase connectivity.\n- Intuitive UI - Use of bloc state management.\n- Local data storage using shared preferences.\n- Firebase connectivity.\n- Intuitive UI - Use of bloc state management.\n- Local data storage using shared preferences.\n- Firebase connectivity.\n- Intuitive UI - Use of bloc state management.\n- Local data storage using shared preferences.\n- Firebase connectivity.\n- Intuitive UI"
+      projectTitle: "Object detection",
+      gifLink: "assets/GIF/object.gif",
+      projectDescription: "- Tensorflow lite models for object detection \n- Unique UI for reducing number of actions performed by the user to select options\n- User can learn about machine learning models used in detection."
   ),
 
 
   Category(
       projectTitle: "Focus time keeper",
-      gifLink: "https://media.giphy.com/media/3o85xA8An7F7iA9CPm/giphy.gif",
-      projectDescription: "It will keep your time. It will keep your time. It will keep your time. "
+      gifLink: "assets/GIF/foucs.gif",
+      projectDescription: "- Similar to forest app in the playstore.\n- Unlike the popular alternative user can change the plant for free\n- Minimalistic UI that is helping the app to fulfill its purpose"
   ),
 
   Category(
       projectTitle: "fouxa.com",
-      gifLink: "https://media.giphy.com/media/3o85xA8An7F7iA9CPm/giphy.gif",
-      projectDescription: "Fouxa"
+      gifLink: "assets/GIF/fouxa.gif",
+      projectDescription: "- Students can learn about a topic from the best resources available on the internet.\n- Curated curriculum for students to follow to grasp subject.",
   ),
 
   Category(
-      projectTitle: "bella cao",
-      gifLink: "https://media.giphy.com/media/3o85xA8An7F7iA9CPm/giphy.gif",
-      projectDescription: "bella"
+      projectTitle: "Rise philosophy",
+      gifLink: "assets/GIF/rise.gif",
+      projectDescription: "- Dark mode for making night reading comfortable.\n- User can change font size.\n- User can see her/his course completion process. "
   ),
 
 

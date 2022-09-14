@@ -37,11 +37,15 @@ dependencies:
   google_fonts: ^2.0.0
   carousel_slider: ^4.0.0-nullsafety.0
   easy_dynamic_theme: ^2.0.0
-  firebase_core: ^1.0.2
-  firebase_auth: ^1.0.1
-  google_sign_in: ^5.0.1
   countup: ^0.1.4
   animated_text_kit: ^4.2.2
+  marquee: ^2.2.3
+  auto_size_text: ^3.0.0
+
+  url_strategy: ^0.2.0
+  url_launcher: ^6.1.5
+
+  flutter_staggered_animations: ^1.0.0
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -105,3 +109,6 @@ flutter:
 
   assets:
     - assets/images/
+    - assets/images/articles/
+    - assets/GIF/
+    - assets/json/articleFile.json

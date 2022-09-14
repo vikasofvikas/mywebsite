@@ -1,11 +1,11 @@
 import 'package:easy_dynamic_theme/easy_dynamic_theme.dart';
-import 'package:mywebsite/utils/authentication.dart';
 import 'package:mywebsite/utils/theme_data.dart';
 import 'package:flutter/material.dart';
-
+import 'package:url_strategy/url_strategy.dart';
 import 'screens/home_page.dart';
 
 void main() {
+  setPathUrlStrategy();
   runApp(
     EasyDynamicThemeWidget(
       child: MyApp(),
@@ -19,17 +19,6 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  Future getUserInfo() async {
-    await getUser();
-    setState(() {});
-    print(uid);
-  }
-
-  @override
-  void initState() {
-    getUserInfo();
-    super.initState();
-  }
 
   @override
   Widget build(BuildContext context) {
